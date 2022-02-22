@@ -1,0 +1,5 @@
+.idea
+*.iml
+krakend.json
+swagger/*
+!swagger/.gitkeep
