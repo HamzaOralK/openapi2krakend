@@ -1,0 +1,1968 @@
+{
+ "version": "2",
+ "timeout": "3000ms",
+ "cache_ttl": "300s",
+ "output_encoding": "json",
+ "name": "Tenera API",
+ "endpoints": [
+  {
+   "endpoint": "/backofficemanager/api/users/{userId}",
+   "method": "DELETE",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/users/{userId}",
+     "encoding": "json",
+     "method": "DELETE",
+     "host": [
+      "http://backofficemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/backofficemanager/api/users/{userId}",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/users/{userId}",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://backofficemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/backofficemanager/api/users/{userId}",
+   "method": "PUT",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/users/{userId}",
+     "encoding": "json",
+     "method": "PUT",
+     "host": [
+      "http://backofficemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/backofficemanager/api/internal/users/{userEmail}/userLookUp",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/internal/users/{userEmail}/userLookUp",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://backofficemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/backofficemanager/api/organizations",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [
+    "created",
+    "limit",
+    "offset",
+    "adminLastname",
+    "city",
+    "phone",
+    "postalCode",
+    "updated",
+    "website",
+    "email",
+    "name",
+    "sortBy",
+    "orderBy"
+   ],
+   "backend": [
+    {
+     "url_pattern": "/api/organizations",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://backofficemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/backofficemanager/api/organizations",
+   "method": "POST",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/organizations",
+     "encoding": "json",
+     "method": "POST",
+     "host": [
+      "http://backofficemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/backofficemanager/api/organizations/{organizationId}/users",
+   "method": "POST",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/organizations/{organizationId}/users",
+     "encoding": "json",
+     "method": "POST",
+     "host": [
+      "http://backofficemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/backofficemanager/api/sharingpolicies/presence",
+   "method": "POST",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/sharingpolicies/presence",
+     "encoding": "json",
+     "method": "POST",
+     "host": [
+      "http://backofficemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/backofficemanager/api/users/{userId}/status",
+   "method": "PUT",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/users/{userId}/status",
+     "encoding": "json",
+     "method": "PUT",
+     "host": [
+      "http://backofficemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/backofficemanager/api/organizations/invitations/{invitationId}/status",
+   "method": "PUT",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/organizations/invitations/{invitationId}/status",
+     "encoding": "json",
+     "method": "PUT",
+     "host": [
+      "http://backofficemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/backofficemanager/api/sharingpolicies/{sharingPolicyId}/effect",
+   "method": "PUT",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/sharingpolicies/{sharingPolicyId}/effect",
+     "encoding": "json",
+     "method": "PUT",
+     "host": [
+      "http://backofficemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/backofficemanager/api/sharingpolicies/{sharingPolicyId}/status",
+   "method": "PUT",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/sharingpolicies/{sharingPolicyId}/status",
+     "encoding": "json",
+     "method": "PUT",
+     "host": [
+      "http://backofficemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/backofficemanager/api/users",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [
+    "limit",
+    "offset",
+    "organizationId",
+    "role",
+    "department",
+    "firstName",
+    "lastName",
+    "email",
+    "position",
+    "status",
+    "sortBy",
+    "orderBy"
+   ],
+   "backend": [
+    {
+     "url_pattern": "/api/users",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://backofficemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/backofficemanager/api/users/{userId}/role",
+   "method": "PUT",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/users/{userId}/role",
+     "encoding": "json",
+     "method": "PUT",
+     "host": [
+      "http://backofficemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/backofficemanager/api/internal/users/{userEmail}/status",
+   "method": "PUT",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/internal/users/{userEmail}/status",
+     "encoding": "json",
+     "method": "PUT",
+     "host": [
+      "http://backofficemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/backofficemanager/api/login",
+   "method": "POST",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/login",
+     "encoding": "json",
+     "method": "POST",
+     "host": [
+      "http://backofficemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/backofficemanager/api/organizations/invitations/{invitationId}",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/organizations/invitations/{invitationId}",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://backofficemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/backofficemanager/api/sharingpolicies",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [
+    "entityType",
+    "ownerOrganizationId",
+    "entityId",
+    "limit",
+    "offset",
+    "sortBy",
+    "orderBy"
+   ],
+   "backend": [
+    {
+     "url_pattern": "/api/sharingpolicies",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://backofficemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/backofficemanager/api/sharingpolicies",
+   "method": "POST",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/sharingpolicies",
+     "encoding": "json",
+     "method": "POST",
+     "host": [
+      "http://backofficemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/backofficemanager/api/organizations/invitations",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [
+    "inviteeCompanyId",
+    "inviteeOrganizationId",
+    "inviterOrganizationId",
+    "limit",
+    "offset",
+    "sortBy",
+    "orderBy"
+   ],
+   "backend": [
+    {
+     "url_pattern": "/api/organizations/invitations",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://backofficemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/backofficemanager/api/organizations/invitations",
+   "method": "POST",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/organizations/invitations",
+     "encoding": "json",
+     "method": "POST",
+     "host": [
+      "http://backofficemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/backofficemanager/api/organizations/{organizationId}",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/organizations/{organizationId}",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://backofficemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/backofficemanager/api/organizations/{organizationId}",
+   "method": "PUT",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/organizations/{organizationId}",
+     "encoding": "json",
+     "method": "PUT",
+     "host": [
+      "http://backofficemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/boqmanager/api/boqs/{boqId}/fileurl",
+   "method": "PUT",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/boqs/{boqId}/fileurl",
+     "encoding": "json",
+     "method": "PUT",
+     "host": [
+      "http://boqmanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/boqmanager/api/boqs/{boqId}",
+   "method": "PUT",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/boqs/{boqId}",
+     "encoding": "json",
+     "method": "PUT",
+     "host": [
+      "http://boqmanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/boqmanager/api/boqs/{boqId}",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [
+    "fullPayload"
+   ],
+   "backend": [
+    {
+     "url_pattern": "/api/boqs/{boqId}",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://boqmanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/boqmanager/api/boqs/files",
+   "method": "POST",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/boqs/files",
+     "encoding": "json",
+     "method": "POST",
+     "host": [
+      "http://boqmanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/boqmanager/api/boqs/upload",
+   "method": "POST",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [
+    "name"
+   ],
+   "backend": [
+    {
+     "url_pattern": "/api/boqs/upload",
+     "encoding": "json",
+     "method": "POST",
+     "host": [
+      "http://boqmanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/boqmanager/api/boqs/{boqId}/servicespecification/elements",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [
+    "fullPayload",
+    "flat"
+   ],
+   "backend": [
+    {
+     "url_pattern": "/api/boqs/{boqId}/servicespecification/elements",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://boqmanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/boqmanager/api/boqs/{boqId}/servicespecification/elements/positions/texts",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [
+    "fullPayload"
+   ],
+   "backend": [
+    {
+     "url_pattern": "/api/boqs/{boqId}/servicespecification/elements/positions/texts",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://boqmanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/boqmanager/api/boqs/{boqId}/servicespecification/elements/{elementId}",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [
+    "fullPayload"
+   ],
+   "backend": [
+    {
+     "url_pattern": "/api/boqs/{boqId}/servicespecification/elements/{elementId}",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://boqmanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/boqmanager/api/boqs/{boqId}/status",
+   "method": "PUT",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/boqs/{boqId}/status",
+     "encoding": "json",
+     "method": "PUT",
+     "host": [
+      "http://boqmanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/boqmanager/api/boqs",
+   "method": "POST",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/boqs",
+     "encoding": "json",
+     "method": "POST",
+     "host": [
+      "http://boqmanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/certificatemanager/api/certificates",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [
+    "type"
+   ],
+   "backend": [
+    {
+     "url_pattern": "/api/certificates",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://certificatemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/certificatemanager/api/certificates",
+   "method": "POST",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [
+    "title",
+    "documentDate",
+    "validFromDate",
+    "validToDate"
+   ],
+   "backend": [
+    {
+     "url_pattern": "/api/certificates",
+     "encoding": "json",
+     "method": "POST",
+     "host": [
+      "http://certificatemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/certificatemanager/api/certificates/certificateTypes",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/certificates/certificateTypes",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://certificatemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/constructionprojectmanager/api/projects",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [
+    "phase",
+    "status",
+    "address",
+    "offset",
+    "limit",
+    "name",
+    "projectType",
+    "client",
+    "customId",
+    "sortBy",
+    "orderBy"
+   ],
+   "backend": [
+    {
+     "url_pattern": "/api/projects",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://constructionprojectmanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/constructionprojectmanager/api/projects",
+   "method": "POST",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/projects",
+     "encoding": "json",
+     "method": "POST",
+     "host": [
+      "http://constructionprojectmanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/constructionprojectmanager/api/projects/{projectId}",
+   "method": "PUT",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/projects/{projectId}",
+     "encoding": "json",
+     "method": "PUT",
+     "host": [
+      "http://constructionprojectmanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/constructionprojectmanager/api/projects/{projectId}",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/projects/{projectId}",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://constructionprojectmanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/constructionprojectmanager/api/projects/{projectId}/status",
+   "method": "PUT",
+   "output_encoding": "json",
+   "timeout": "3000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/projects/{projectId}/status",
+     "encoding": "json",
+     "method": "PUT",
+     "host": [
+      "http://constructionprojectmanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/files/{fileId}/metas/{metaId}",
+   "method": "DELETE",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/files/{fileId}/metas/{metaId}",
+     "encoding": "json",
+     "method": "DELETE",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/files/{fileId}/tags",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/files/{fileId}/tags",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/files/{fileId}/tags",
+   "method": "POST",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/files/{fileId}/tags",
+     "encoding": "json",
+     "method": "POST",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/folders/root",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/folders/root",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/metas/{metaId}/items",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [
+    "values",
+    "offset",
+    "limit",
+    "sortby"
+   ],
+   "backend": [
+    {
+     "url_pattern": "/api/metas/{metaId}/items",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/tags/{tagId}/items",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [
+    "offset",
+    "limit",
+    "sortby"
+   ],
+   "backend": [
+    {
+     "url_pattern": "/api/tags/{tagId}/items",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/zip",
+   "method": "POST",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/zip",
+     "encoding": "json",
+     "method": "POST",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/zip/{zipId}",
+   "method": "PUT",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/zip/{zipId}",
+     "encoding": "json",
+     "method": "PUT",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/zip/{zipId}",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/zip/{zipId}",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/folders/{folderId}/stats",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [
+    "recursive"
+   ],
+   "backend": [
+    {
+     "url_pattern": "/api/folders/{folderId}/stats",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/folders/{folderId}/tags",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/folders/{folderId}/tags",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/folders/{folderId}/tags",
+   "method": "POST",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/folders/{folderId}/tags",
+     "encoding": "json",
+     "method": "POST",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/files/{fileId}/tags/{tagId}",
+   "method": "DELETE",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/files/{fileId}/tags/{tagId}",
+     "encoding": "json",
+     "method": "DELETE",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/folders/{folderId}",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/folders/{folderId}",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/folders/{folderId}",
+   "method": "PUT",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/folders/{folderId}",
+     "encoding": "json",
+     "method": "PUT",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/folders/{folderId}",
+   "method": "DELETE",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/folders/{folderId}",
+     "encoding": "json",
+     "method": "DELETE",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/files",
+   "method": "POST",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [
+    "folderId",
+    "path",
+    "forceRename"
+   ],
+   "backend": [
+    {
+     "url_pattern": "/api/files",
+     "encoding": "json",
+     "method": "POST",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/files/{fileId}/metas",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/files/{fileId}/metas",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/files/{fileId}/metas",
+   "method": "POST",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/files/{fileId}/metas",
+     "encoding": "json",
+     "method": "POST",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/folders",
+   "method": "POST",
+   "output_encoding": "json",
+   "timeout": "30000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/folders",
+     "encoding": "json",
+     "method": "POST",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/folders/{folderId}/metas",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/folders/{folderId}/metas",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/folders/{folderId}/metas",
+   "method": "POST",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/folders/{folderId}/metas",
+     "encoding": "json",
+     "method": "POST",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/metas/{metaId}",
+   "method": "DELETE",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/metas/{metaId}",
+     "encoding": "json",
+     "method": "DELETE",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/metas/{metaId}",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/metas/{metaId}",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/metas/{metaId}",
+   "method": "PUT",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/metas/{metaId}",
+     "encoding": "json",
+     "method": "PUT",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/batch",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [
+    "fileId",
+    "folderId"
+   ],
+   "backend": [
+    {
+     "url_pattern": "/api/batch",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/files/{fileId}",
+   "method": "DELETE",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/files/{fileId}",
+     "encoding": "json",
+     "method": "DELETE",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/files/{fileId}",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/files/{fileId}",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/files/{fileId}",
+   "method": "PUT",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/files/{fileId}",
+     "encoding": "json",
+     "method": "PUT",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/tags/{tagId}",
+   "method": "DELETE",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/tags/{tagId}",
+     "encoding": "json",
+     "method": "DELETE",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/tags/{tagId}",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/tags/{tagId}",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/tags/{tagId}",
+   "method": "PUT",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/tags/{tagId}",
+     "encoding": "json",
+     "method": "PUT",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/folders/{folderId}/items",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [
+    "deleted"
+   ],
+   "backend": [
+    {
+     "url_pattern": "/api/folders/{folderId}/items",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/folders/{folderId}/metas/{metaId}",
+   "method": "DELETE",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/folders/{folderId}/metas/{metaId}",
+     "encoding": "json",
+     "method": "DELETE",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/folders/{folderId}/tags/{tagId}",
+   "method": "DELETE",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/folders/{folderId}/tags/{tagId}",
+     "encoding": "json",
+     "method": "DELETE",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/metas",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/metas",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/metas",
+   "method": "POST",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/metas",
+     "encoding": "json",
+     "method": "POST",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/batch/lookup",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [
+    "parentFolderId",
+    "paths"
+   ],
+   "backend": [
+    {
+     "url_pattern": "/api/batch/lookup",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/files/{fileId}/status",
+   "method": "PUT",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/files/{fileId}/status",
+     "encoding": "json",
+     "method": "PUT",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/tags",
+   "method": "GET",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/tags",
+     "encoding": "json",
+     "method": "GET",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/tags",
+   "method": "POST",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [],
+   "backend": [
+    {
+     "url_pattern": "/api/tags",
+     "encoding": "json",
+     "method": "POST",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/folders/search",
+   "method": "POST",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [
+    "offset",
+    "limit"
+   ],
+   "backend": [
+    {
+     "url_pattern": "/api/folders/search",
+     "encoding": "json",
+     "method": "POST",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  },
+  {
+   "endpoint": "/filemanager/api/folders/{folderId}/search",
+   "method": "POST",
+   "output_encoding": "json",
+   "timeout": "10000ms",
+   "querystring_params": [
+    "offset",
+    "limit"
+   ],
+   "backend": [
+    {
+     "url_pattern": "/api/folders/{folderId}/search",
+     "encoding": "json",
+     "method": "POST",
+     "host": [
+      "http://filemanager.tenera:8080"
+     ],
+     "disable_host_sanitize": false
+    }
+   ],
+   "headers_to_pass": [
+    "Content-Type",
+    "Authorization"
+   ]
+  }
+ ],
+ "extra_config": {
+  "github_com/devopsfaith/krakend-gologging": {
+   "level": "WARNING",
+   "Prefix": "[KRAKEND]",
+   "cache_ttl": false,
+   "output_encoding": true,
+   "name": "default"
+  }
+ }
+}
