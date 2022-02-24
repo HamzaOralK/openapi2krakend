@@ -1,7 +1,6 @@
 package models
 
 import (
-	"fmt"
 	"strings"
 )
 
@@ -35,7 +34,6 @@ type Endpoint struct {
 
 func NewEndpoint(host string, endpoint string, backendEndpoint string, method string, outputEncoding string, timeout string) Endpoint {
 	backend := NewBackend(host, backendEndpoint, method, outputEncoding)
-	fmt.Println(timeout)
 	return Endpoint{
 		Endpoint:          endpoint,
 		Method:            strings.ToUpper(method),

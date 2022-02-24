@@ -74,7 +74,6 @@ func main() {
 				if extensionValue := getExtension(methodObject.Extensions, "x-timeout"); extensionValue != "" {
 					methodTimeout = extensionValue
 				}
-				fmt.Println(host, methodTimeout)
 
 				krakendEndpoint := models.NewEndpoint(host, endpoint, pathUrl, methodName, *encoding, methodTimeout)
 				lengthOfSecurity := len(*methodObject.Security)
@@ -105,5 +104,5 @@ func main() {
 	}
 
 	file, _ := json.MarshalIndent(configuration, "", " ")
-	_ = ioutil.WriteFile("test.json", file, 0644)
+	_ = ioutil.WriteFile("krakend.json", file, 0644)
 }
