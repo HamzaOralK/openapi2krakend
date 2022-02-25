@@ -8,6 +8,7 @@ import (
 	"io/ioutil"
 	"strings"
 
+	"github.com/venture-justbuild/openapitokrakend/extensions"
 	"github.com/venture-justbuild/openapitokrakend/models"
 )
 
@@ -34,7 +35,7 @@ func main() {
 		path := strings.ToLower(openApiDefinition.Info.Title)
 		apiTimeout := *globalTimeout
 
-		if extensionValue := getExtension(openApiDefinition.Extensions, "x-timeout"); extensionValue != "" {
+		if extensionValue := getExtension(openApiDefinition.Extensions, extensions.TimeOut); extensionValue != "" {
 			apiTimeout = extensionValue
 		}
 
@@ -47,7 +48,7 @@ func main() {
 				}
 
 				methodTimeout := apiTimeout
-				if extensionValue := getExtension(methodObject.Extensions, "x-timeout"); extensionValue != "" {
+				if extensionValue := getExtension(methodObject.Extensions, extensions.TimeOut); extensionValue != "" {
 					methodTimeout = extensionValue
 				}
 

@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/getkin/kin-openapi/openapi3"
+	"github.com/venture-justbuild/openapitokrakend/extensions"
 	"io/fs"
 	"strings"
 )
@@ -28,9 +29,10 @@ func getComponentFromReferenceAddress(openapiDef openapi3.T, ref string) openapi
 	return *openapiDef.Components.Schemas[referenceKey].Value
 }
 
-func getExtension(extension map[string]interface{}, key string) string {
-	if extension[key] != nil {
-		return strings.Replace(fmt.Sprintf("%s", extension[key]), "\"", "", -1)
+func getExtension(extension map[string]interface{}, key extensions.CustomExtensions) string {
+	keyString := key.String()
+	if extension[keyString] != nil {
+		return strings.Replace(fmt.Sprintf("%s", extension[keyString]), "\"", "", -1)
 	} else {
 		return ""
 	}
