@@ -4,35 +4,12 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"github.com/getkin/kin-openapi/openapi3"
-	"github.com/venture-justbuild/openapitokrakend/models"
 	"io/fs"
 	"io/ioutil"
 	"strings"
+
+	"github.com/venture-justbuild/openapitokrakend/models"
 )
-
-func FilterFiles(files []fs.FileInfo) []fs.FileInfo {
-	for index, file := range files {
-		if !(strings.HasSuffix(file.Name(), ".yaml") || strings.HasSuffix(file.Name(), ".json")) {
-			files = append(files[:index], files[index+1:]...)
-		}
-	}
-	return files
-}
-
-func getComponentFromReferenceAddress(openapiDef openapi3.T, ref string) openapi3.Schema {
-	referenceSplit := strings.Split(ref, "/")
-	referenceKey := referenceSplit[len(referenceSplit)-1]
-	return *openapiDef.Components.Schemas[referenceKey].Value
-}
-
-func getExtension(extension map[string]interface{}, key string) string {
-	if extension[key] != nil {
-		return strings.Replace(fmt.Sprintf("%s", extension[key]), "\"", "", -1)
-	} else {
-		return ""
-	}
-}
 
 func main() {
 	swaggerDirectory := flag.String("directory", "./swagger", "Directory of the swagger files")
@@ -43,16 +20,15 @@ func main() {
 
 	var swaggerFiles []fs.FileInfo
 	if files, err := ioutil.ReadDir(*swaggerDirectory); err == nil {
-		swaggerFiles = FilterFiles(files)
+		swaggerFiles = filterFiles(files)
 	}
 
 	numberOfFiles := len(swaggerFiles)
 	configuration := models.NewConfiguration(*encoding, *globalTimeout)
 
-	loader := openapi3.NewLoader()
 	for _, file := range swaggerFiles {
 
-		openApiDefinition, _ := loader.LoadFromFile(fmt.Sprintf("%s/%s", *swaggerDirectory, file.Name()))
+		openApiDefinition := loadFromFile(fmt.Sprintf("%s/%s", *swaggerDirectory, file.Name()))
 
 		host := openApiDefinition.Servers[0].URL
 		path := strings.ToLower(openApiDefinition.Info.Title)
