@@ -1,39 +1,31 @@
-package main
+package converter
 
 import (
-	"encoding/json"
-	"flag"
 	"fmt"
 	"io/fs"
 	"io/ioutil"
 	"strings"
 
-	"github.com/venture-justbuild/openapitokrakend/extensions"
-	"github.com/venture-justbuild/openapitokrakend/models"
+	"github.com/venture-justbuild/openapitokrakend/pkg/extensions"
+	"github.com/venture-justbuild/openapitokrakend/pkg/models"
 )
 
-func main() {
-	swaggerDirectory := flag.String("directory", "./swagger", "Directory of the swagger files")
-	encoding := flag.String("encoding", "json", "Sets default encoding. Values are json, safejson, xml, rss, string, no-op")
-	globalTimeout := flag.String("globalTimeout", "3000ms", "Sets global timeout")
-
-	flag.Parse()
-
+func Convert(swaggerDirectory string, encoding string, globalTimeout string) models.Configuration {
 	var swaggerFiles []fs.FileInfo
-	if files, err := ioutil.ReadDir(*swaggerDirectory); err == nil {
+	if files, err := ioutil.ReadDir(swaggerDirectory); err == nil {
 		swaggerFiles = filterFiles(files)
 	}
 
 	numberOfFiles := len(swaggerFiles)
-	configuration := models.NewConfiguration(*encoding, *globalTimeout)
+	configuration := models.NewConfiguration(encoding, globalTimeout)
 
 	for _, file := range swaggerFiles {
 
-		openApiDefinition := loadFromFile(fmt.Sprintf("%s/%s", *swaggerDirectory, file.Name()))
+		openApiDefinition := loadFromFile(fmt.Sprintf("%s/%s", swaggerDirectory, file.Name()))
 
 		host := openApiDefinition.Servers[0].URL
 		path := strings.ToLower(openApiDefinition.Info.Title)
-		apiTimeout := *globalTimeout
+		apiTimeout := globalTimeout
 
 		if extensionValue := getExtension(openApiDefinition.Extensions, extensions.TimeOut); extensionValue != "" {
 			apiTimeout = extensionValue
@@ -52,7 +44,7 @@ func main() {
 					methodTimeout = extensionValue
 				}
 
-				krakendEndpoint := models.NewEndpoint(host, endpoint, pathUrl, methodName, *encoding, methodTimeout)
+				krakendEndpoint := models.NewEndpoint(host, endpoint, pathUrl, methodName, encoding, methodTimeout)
 				lengthOfSecurity := len(*methodObject.Security)
 				if lengthOfSecurity > 0 {
 					krakendEndpoint.InsertHeadersToPass("Authorization")
@@ -79,7 +71,5 @@ func main() {
 			}
 		}
 	}
-
-	file, _ := json.MarshalIndent(configuration, "", " ")
-	_ = ioutil.WriteFile("krakend.json", file, 0644)
+	return configuration
 }

@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: krakend-deployment
+spec:
+  selector:
+    matchLabels:
+      app: krakend
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: krakend
+    spec:
+      initContainers:
+        - name: init-configuration
+          image: okhuz/openapi2krakend:0.0.3
+          imagePullPolicy: Always
+          env:
+            - name: API_URLS
+              value: "<comma delimited api specification endpoints, format must be OpenAPI v3>"
+          command: ["/bin/sh", "-c", "/openapi2krakend/init-script.sh"]
+          volumeMounts:
+            - mountPath: /openapi2krakend/output
+              name: remote-definitions
+      containers:
+        - name: krakend
+          image: devopsfaith/krakend:latest
+          ports:
+            - containerPort: 8080
+          imagePullPolicy: Always
+          command: [ "/usr/bin/krakend" ]
+          args: [ "run", "-d", "-c", "/configuration/krakend.json", "-p", "8080" ]
+          env:
+            - name: KRAKEND_PORT
+              value: "8080"
+          volumeMounts:
+            - mountPath: /configuration
+              name: remote-definitions
+      volumes:
+        - name: remote-definitions
+          emptyDir: {}

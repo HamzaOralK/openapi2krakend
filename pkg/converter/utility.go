@@ -1,11 +1,12 @@
-package main
+package converter
 
 import (
 	"fmt"
-	"github.com/getkin/kin-openapi/openapi3"
-	"github.com/venture-justbuild/openapitokrakend/extensions"
 	"io/fs"
 	"strings"
+
+	"github.com/getkin/kin-openapi/openapi3"
+	"github.com/venture-justbuild/openapitokrakend/pkg/extensions"
 )
 
 func loadFromFile(filePath string) *openapi3.T {

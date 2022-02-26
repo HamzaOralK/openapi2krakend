@@ -1,5 +1,7 @@
 .idea
 *.iml
+build
 krakend.json
 swagger/*
 !swagger/.gitkeep
+deployment/ingress-aws.yaml
