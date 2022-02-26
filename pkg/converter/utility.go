@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	"github.com/getkin/kin-openapi/openapi3"
-	"github.com/venture-justbuild/openapitokrakend/pkg/extensions"
+	"github.com/okhuz/openapi2krakend/pkg/extensions"
 )
 
 func loadFromFile(filePath string) *openapi3.T {

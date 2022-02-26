@@ -6,8 +6,8 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"github.com/venture-justbuild/openapitokrakend/pkg/extensions"
-	"github.com/venture-justbuild/openapitokrakend/pkg/models"
+	"github.com/okhuz/openapi2krakend/pkg/extensions"
+	"github.com/okhuz/openapi2krakend/pkg/models"
 )
 
 func Convert(swaggerDirectory string, encoding string, globalTimeout string) models.Configuration {

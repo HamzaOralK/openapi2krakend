@@ -6,7 +6,7 @@ import (
 	"os"
 	"path"
 
-	"github.com/venture-justbuild/openapitokrakend/pkg/converter"
+	"github.com/okhuz/openapi2krakend/pkg/converter"
 )
 
 func main() {

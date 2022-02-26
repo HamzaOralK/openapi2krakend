@@ -1,4 +1,4 @@
-module github.com/venture-justbuild/openapitokrakend
+module github.com/okhuz/openapi2krakend
 
 go 1.17
 
