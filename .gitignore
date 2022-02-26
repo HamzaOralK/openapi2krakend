@@ -5,3 +5,4 @@ krakend.json
 swagger/*
 !swagger/.gitkeep
 deployment/ingress-aws.yaml
+.DS_Store
