@@ -14,7 +14,7 @@ spec:
     spec:
       initContainers:
         - name: init-configuration
-          image: okhuz/openapi2krakend:0.0.3
+          image: okhuz/openapi2krakend
           imagePullPolicy: Always
           env:
             - name: API_URLS

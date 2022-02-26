@@ -2,7 +2,13 @@
 Basic conversion from OpenAPI specification to Krakend config. This is extendable with custom OpenAPI 
 attributes and more support for both krakend and openapi configurations.
 
-x-timeout: In top level and in method level modifies timeout for the whole api or for a single endpoint 
+x-timeout: At top level or at method level modifies timeout for the whole api or for a single endpoint 
+
+### Usage
+
+openapi2krakend can be run before the krakend container to generate krakend.json for krakend to consume.
+Services can serve their swagger definitions or even from their documentation pages one can download those swagger
+files and convert.
 
 ### Arguments
 
@@ -14,17 +20,23 @@ x-timeout: In top level and in method level modifies timeout for the whole api o
 
 ### Usage
 
+In make file image creation and build has been declared 
+
+To build:
 ```shell 
-go build -o openapi2krakend ./pkg
-./openapi2krakend
+make build
 ``` 
 
-### Dockerizing Application
-```shell
-docker build -t test/krakend:1.0.0 .
-```
+To dockerize
+````shell
+make dockerize
+````
 
 ### Deployment to Kubernetes
+
+In deployment/deployment.yaml file you can set environment variables to "https://service-1/api-specification,https://service-2/api-specification"
+then image will download all the specifications supplied and merge and convert all swagger files into a single krakend
+configuration file.
 
 ````shell
 kubectl apply -f ./deployment
