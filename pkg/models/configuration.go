@@ -53,24 +53,6 @@ func (e *Endpoint) InsertHeadersToPass(header string) {
 	e.HeadersToPass = append(e.HeadersToPass, header)
 }
 
-type Logging struct {
-	Level  string `json:"level"`
-	Prefix string `json:"Prefix"`
-	Syslog bool   `json:"cache_ttl"`
-	Stdout bool   `json:"output_encoding"`
-	Format string `json:"name"`
-}
-
-func NewLogging() Logging {
-	return Logging{
-		Level:  "WARNING",
-		Prefix: "[KRAKEND]",
-		Syslog: false,
-		Stdout: true,
-		Format: "default",
-	}
-}
-
 type Configuration struct {
 	Version        string                 `json:"version"`
 	Timeout        string                 `json:"timeout"`
@@ -91,6 +73,7 @@ func NewConfiguration(outputEncoding string, timeout string) Configuration {
 		Endpoints:      []Endpoint{},
 		ExtraConfig: map[string]interface{}{
 			"github_com/devopsfaith/krakend-gologging": NewLogging(),
+			"github_com/devopsfaith/krakend-cors":      NewCors(strings.Split(getEnv("ALLOWED_ORIGIN", "*"), ",")),
 		},
 	}
 }

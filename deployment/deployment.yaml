@@ -14,11 +14,13 @@ spec:
     spec:
       initContainers:
         - name: init-configuration
-          image: okhuz/openapi2krakend
+          image: okhuz/openapi2krakend:latest
           imagePullPolicy: Always
           env:
             - name: API_URLS
               value: "<comma delimited api specification endpoints, format must be OpenAPI v3>"
+            - name: ALLOWED_ORIGIN
+              value: "*"
           command: ["/bin/sh", "-c", "/openapi2krakend/init-script.sh"]
           volumeMounts:
             - mountPath: /openapi2krakend/output

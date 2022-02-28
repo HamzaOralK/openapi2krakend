@@ -36,7 +36,7 @@ make dockerize
 
 In deployment/deployment.yaml file you can set environment variables to "https://service-1/api-specification,https://service-2/api-specification"
 then image will download all the specifications supplied and merge and convert all swagger files into a single krakend
-configuration file.
+configuration file. Allowed origin configuration for CORS application.
 
 ````shell
 kubectl apply -f ./deployment
