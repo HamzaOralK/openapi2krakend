@@ -60,10 +60,19 @@ type Configuration struct {
 	OutputEncoding string                 `json:"output_encoding"`
 	Name           string                 `json:"name"`
 	Endpoints      []Endpoint             `json:"endpoints"`
-	ExtraConfig    map[string]interface{} `json:"extra_config"`
+	ExtraConfig    map[string]interface{} `json:"extra_config,omitempty"`
 }
 
 func NewConfiguration(outputEncoding string, timeout string) Configuration {
+	var extraConfig = make(map[string]interface{}, 15)
+
+	if getEnv("ENABLE_CORS", "false") == "true" {
+		extraConfig["github_com/devopsfaith/krakend-cors"] = NewCors()
+	}
+	if getEnv("ENABLE_LOGGING", "false") == "true" {
+		extraConfig["github_com/devopsfaith/krakend-gologging"] = NewLogging()
+	}
+
 	return Configuration{
 		Version:        "2",
 		Timeout:        timeout,
@@ -71,10 +80,7 @@ func NewConfiguration(outputEncoding string, timeout string) Configuration {
 		OutputEncoding: outputEncoding,
 		Name:           "Tenera API",
 		Endpoints:      []Endpoint{},
-		ExtraConfig: map[string]interface{}{
-			"github_com/devopsfaith/krakend-gologging": NewLogging(),
-			"github_com/devopsfaith/krakend-cors":      NewCors(strings.Split(getEnv("ALLOWED_ORIGIN", "*"), ",")),
-		},
+		ExtraConfig:    extraConfig,
 	}
 }
 

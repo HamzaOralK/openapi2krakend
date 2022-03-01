@@ -1,11 +1,13 @@
 package models
 
+import "strings"
+
 type Logging struct {
 	Level  string `json:"level"`
-	Prefix string `json:"Prefix"`
+	Prefix string `json:"prefix"`
 	Syslog bool   `json:"cache_ttl"`
 	Stdout bool   `json:"output_encoding"`
-	Format string `json:"name"`
+	Format string `json:"format"`
 }
 
 func NewLogging() Logging {
@@ -25,7 +27,8 @@ type Cors struct {
 	AllowMethods  []string `json:"allow_methods"`
 }
 
-func NewCors(allowOrigins []string) Cors {
+func NewCors() Cors {
+	allowOrigins := strings.Split(getEnv("ALLOWED_ORIGIN", "*"), ",")
 	return Cors{
 		AllowOrigins:  allowOrigins,
 		ExposeHeaders: []string{"Content-Length"},

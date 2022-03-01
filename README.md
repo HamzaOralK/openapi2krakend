@@ -38,6 +38,11 @@ In deployment/deployment.yaml file you can set environment variables to "https:/
 then image will download all the specifications supplied and merge and convert all swagger files into a single krakend
 configuration file. Allowed origin configuration for CORS application.
 
+#### 
+ENABLE_LOGGING: true or false, default false
+ENABLE_CORS: true or false, default false
+ALLOWED_ORIGIN: if ENABLE_CORS is true, comma delimited origin list
+
 ````shell
 kubectl apply -f ./deployment
 ````
