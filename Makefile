@@ -1,4 +1,4 @@
-.PHONY: build dockerize
+.PHONY: build dockerize test
 
 build:
 	rm -rf ./build && \
@@ -7,3 +7,5 @@ build:
 dockerize: build
 	docker buildx build --platform=linux/amd64 -f docker/Dockerfile -t okhuz/openapi2krakend:latest .
 
+test:
+	go test ./... -v
