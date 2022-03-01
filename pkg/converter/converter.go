@@ -2,12 +2,10 @@ package converter
 
 import (
 	"fmt"
-	"io/fs"
-	"io/ioutil"
-	"strings"
-
 	"github.com/okhuz/openapi2krakend/pkg/extensions"
 	"github.com/okhuz/openapi2krakend/pkg/models"
+	"io/fs"
+	"io/ioutil"
 )
 
 func Convert(swaggerDirectory string, encoding string, globalTimeout string) models.Configuration {
@@ -24,7 +22,7 @@ func Convert(swaggerDirectory string, encoding string, globalTimeout string) mod
 		openApiDefinition := loadFromFile(fmt.Sprintf("%s/%s", swaggerDirectory, file.Name()))
 
 		host := openApiDefinition.Servers[0].URL
-		path := strings.ToLower(openApiDefinition.Info.Title)
+		path := sanitizeTitle(openApiDefinition.Info.Title)
 		apiTimeout := globalTimeout
 
 		if extensionValue := getExtension(openApiDefinition.Extensions, extensions.TimeOut); extensionValue != "" {
@@ -45,14 +43,16 @@ func Convert(swaggerDirectory string, encoding string, globalTimeout string) mod
 				}
 
 				krakendEndpoint := models.NewEndpoint(host, endpoint, pathUrl, methodName, encoding, methodTimeout)
-				lengthOfSecurity := len(*methodObject.Security)
-				if lengthOfSecurity > 0 {
-					krakendEndpoint.InsertHeadersToPass("Authorization")
+				if methodObject.Security != nil {
+					lengthOfSecurity := len(*methodObject.Security)
+					if lengthOfSecurity > 0 {
+						krakendEndpoint.InsertHeadersToPass("Authorization")
+					}
 				}
 				for _, parameterObject := range methodObject.Parameters {
 					parameter := parameterObject.Value
 					if parameter.In == "query" {
-						if *parameter.Explode == true && parameter.Schema.Ref != "" {
+						if parameter.Explode != nil && *parameter.Explode == true && parameter.Schema.Ref != "" {
 							explodedParams := getComponentFromReferenceAddress(*openApiDefinition, parameter.Schema.Ref)
 							if explodedParams.Type == "object" {
 								for k, _ := range explodedParams.Properties {

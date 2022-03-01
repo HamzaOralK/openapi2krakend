@@ -4,5 +4,6 @@ build
 krakend.json
 swagger/*
 !swagger/.gitkeep
+!swagger/pet-store.json
 deployment/ingress-aws.yaml
 .DS_Store

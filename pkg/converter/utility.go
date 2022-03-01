@@ -3,6 +3,8 @@ package converter
 import (
 	"fmt"
 	"io/fs"
+	"log"
+	"regexp"
 	"strings"
 
 	"github.com/getkin/kin-openapi/openapi3"
@@ -37,4 +39,12 @@ func getExtension(extension map[string]interface{}, key extensions.CustomExtensi
 	} else {
 		return ""
 	}
+}
+
+func sanitizeTitle(input string) string {
+	reg, err := regexp.Compile("[^a-zA-Z0-9]+")
+	if err != nil {
+		log.Fatal(err)
+	}
+	return strings.ToLower(reg.ReplaceAllString(input, ""))
 }
