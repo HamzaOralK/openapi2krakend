@@ -42,8 +42,12 @@ configuration file. Allowed origin configuration for CORS application.
 
 | Name            | Description                                                               | Type     | Default                                                | Required |
 |-----------------|---------------------------------------------------------------------------|----------|--------------------------------------------------------|:--------:|
-| ENABLE_LOGGING  | Enable logging plugin for KrakenD                                         | `string` | `false`                                                |    no    |
-| ENABLE_CORS     | Enable CORS plugin for KrakenD                                            | `string` | `false`                                                |    no    |
+| ENABLE_LOGGING  | Enable logging plugin for KrakenD                                         | `bool`   | `false`                                                |    no    |
+| LOG_LEVEL       | Log level                                                                 | `string` | `WARNING`                                              |    no    |
+| LOG_PREFIX      | Log prefix for filtering                                                  | `string` | `[KRAKEND]`                                            |    no    |
+| LOG_SYSLOG      | Enable syslog                                                             | `bool`   | `true`                                                 |    no    |
+| LOG_STDOUT      | Enable stdout                                                             | `bool`   | `true`                                                 |    no    |
+| ENABLE_CORS     | Enable CORS plugin for KrakenD                                            | `bol`    | `false`                                                |    no    |
 | ALLOWED_ORIGINS | Comma seperated allowed origins, it will be used when ENABLE_CORS is true | `string` | `*`                                                    |    no    |
 | ALLOWED_METHODS | Comma seperated allowed methods, it will be used when ENABLE_CORS is true | `string` | `GET,HEAD,POST,PUT,DELETE,CONNECT,OPTIONS,TRACE,PATCH` |    no    |
 

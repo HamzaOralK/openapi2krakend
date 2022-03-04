@@ -1,22 +1,63 @@
 package models
 
-import "strings"
+import (
+	"errors"
+	"log"
+	"strings"
+)
 
 type Logging struct {
 	Level  string `json:"level"`
 	Prefix string `json:"prefix"`
-	Syslog bool   `json:"cache_ttl"`
-	Stdout bool   `json:"output_encoding"`
+	Syslog bool   `json:"syslog"`
+	Stdout bool   `json:"stdout"`
 	Format string `json:"format"`
 }
 
 func NewLogging() Logging {
+	logLevel, e := getLogLevel()
+	if e != nil {
+		log.Fatalln(e)
+	}
 	return Logging{
-		Level:  "WARNING",
-		Prefix: "[KRAKEND]",
-		Syslog: false,
-		Stdout: true,
+		Level:  logLevel,
+		Prefix: getLogPrefix(),
+		Syslog: getSysLog(),
+		Stdout: getStdout(),
 		Format: "default",
+	}
+}
+
+func getLogLevel() (string, error) {
+	LogLevels := []string{"CRITICAL", "DEBUG", "ERROR", "INFO", "WARNING"}
+	LogLevel := strings.ToUpper(getEnv("LOG_LEVEL", "WARNING"))
+
+	for i := range LogLevels {
+		if LogLevels[i] == LogLevel {
+			return LogLevel, nil
+		}
+	}
+
+	return "", errors.New("log level values is wrong")
+}
+
+func getLogPrefix() string {
+	return getEnv("LOG_PREFIX", "[KRAKEND]")
+}
+
+func getSysLog() bool {
+	if strings.ToLower(getEnv("LOG_SYSLOG", "true")) == "true" {
+		return true
+	} else {
+		return false
+	}
+}
+
+func getStdout() bool {
+	if strings.ToLower(getEnv("LOG_STDOUT", "true")) == "true" {
+		return true
+	} else {
+		return false
 	}
 }
 
