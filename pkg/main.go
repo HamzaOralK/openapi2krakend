@@ -3,10 +3,9 @@ package main
 import (
 	"encoding/json"
 	"flag"
+	"github.com/okhuz/openapi2krakend/pkg/converter"
 	"os"
 	"path"
-
-	"github.com/okhuz/openapi2krakend/pkg/converter"
 )
 
 func main() {

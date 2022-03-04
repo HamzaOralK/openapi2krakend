@@ -19,7 +19,7 @@ spec:
           env:
             - name: API_URLS
               value: "<comma delimited api specification endpoints, format must be OpenAPI v3>"
-            - name: ALLOWED_ORIGIN
+            - name: ALLOWED_ORIGINS
               value: "*"
           command: ["/bin/sh", "-c", "/openapi2krakend/init-script.sh"]
           volumeMounts:

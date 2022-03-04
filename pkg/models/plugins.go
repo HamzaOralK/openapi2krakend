@@ -28,21 +28,21 @@ type Cors struct {
 }
 
 func NewCors() Cors {
-	allowOrigins := strings.Split(getEnv("ALLOWED_ORIGIN", "*"), ",")
+	allowOrigins := strings.Split(getEnv("ALLOWED_ORIGINS", "*"), ",")
+	var allowedMethods []string
+	methodsEnv := getEnv("ALLOWED_METHODS", "")
+	if methodsEnv != "" {
+		allowedMethods = strings.Split(methodsEnv, ",")
+	} else {
+		allowedMethods = []string{
+			"GET", "HEAD", "POST", "PUT", "DELETE", "CONNECT", "OPTIONS", "TRACE", "PATCH",
+		}
+	}
+
 	return Cors{
 		AllowOrigins:  allowOrigins,
 		ExposeHeaders: []string{"Content-Length"},
 		MaxAge:        "12h",
-		AllowMethods: []string{
-			"GET",
-			"HEAD",
-			"POST",
-			"PUT",
-			"DELETE",
-			"CONNECT",
-			"OPTIONS",
-			"TRACE",
-			"PATCH",
-		},
+		AllowMethods:  allowedMethods,
 	}
 }

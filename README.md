@@ -40,11 +40,12 @@ configuration file. Allowed origin configuration for CORS application.
 
 #### Environment Variables for openApi2krakend
 
-| Name           | Description                                                               | Type     | Default | Required |
-|----------------|---------------------------------------------------------------------------|----------|---------|:--------:|
-| ENABLE_LOGGING | Enable logging plugin for KrakenD                                         | `string` | `false` |    no    |
-| ENABLE_CORS    | Enable CORS plugin for KrakenD                                            | `string` | `false` |    no    |
-| ALLOWED_ORIGIN | Comma seperated allowed origins, it will be used when ENABLE_CORS is true | `string` | `null`  |    no    |
+| Name            | Description                                                               | Type     | Default                                                | Required |
+|-----------------|---------------------------------------------------------------------------|----------|--------------------------------------------------------|:--------:|
+| ENABLE_LOGGING  | Enable logging plugin for KrakenD                                         | `string` | `false`                                                |    no    |
+| ENABLE_CORS     | Enable CORS plugin for KrakenD                                            | `string` | `false`                                                |    no    |
+| ALLOWED_ORIGINS | Comma seperated allowed origins, it will be used when ENABLE_CORS is true | `string` | `*`                                                    |    no    |
+| ALLOWED_METHODS | Comma seperated allowed methods, it will be used when ENABLE_CORS is true | `string` | `GET,HEAD,POST,PUT,DELETE,CONNECT,OPTIONS,TRACE,PATCH` |    no    |
 
 ````shell
 kubectl apply -f ./deployment
