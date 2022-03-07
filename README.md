@@ -54,3 +54,5 @@ configuration file. Allowed origin configuration for CORS application.
 ````shell
 kubectl apply -f ./deployment
 ````
+#### Contribution
+Project itself quite easy to understand and maintain and I am changing as I need it in my stack. Please feel free to contribute and open a PR if you see fit.
