@@ -5,7 +5,7 @@ build:
 	env GOOS=linux GOARCH=amd64 go build -o ./build/openapi2krakend ./pkg
 
 dockerize: build
-	docker buildx build --platform=linux/amd64 -f docker/Dockerfile -t okhuz/openapi2krakend:0.0.5 .
+	docker buildx build --platform=linux/amd64 -f docker/Dockerfile -t okhuz/openapi2krakend:0.0.6 .
 
 test:
 	go test ./... -v
