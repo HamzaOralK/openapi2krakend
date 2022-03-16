@@ -76,7 +76,7 @@ func NewCors() Cors {
 		allowedMethods = strings.Split(methodsEnv, ",")
 	} else {
 		allowedMethods = []string{
-			"GET", "HEAD", "POST", "PUT", "DELETE", "CONNECT", "OPTIONS", "TRACE", "PATCH",
+			"*",
 		}
 	}
 

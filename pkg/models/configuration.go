@@ -27,9 +27,9 @@ type Endpoint struct {
 	Method            string    `json:"method"`
 	OutputEncoding    string    `json:"output_encoding"`
 	Timeout           string    `json:"timeout"`
-	QuerystringParams []string  `json:"querystring_params"`
+	InputQueryStrings []string  `json:"input_query_strings"`
 	Backend           []Backend `json:"backend"`
-	HeadersToPass     []string  `json:"headers_to_pass"`
+	InputHeaders      []string  `json:"input_headers"`
 }
 
 func NewEndpoint(host string, endpoint string, backendEndpoint string, method string, outputEncoding string, timeout string) Endpoint {
@@ -39,21 +39,22 @@ func NewEndpoint(host string, endpoint string, backendEndpoint string, method st
 		Method:            strings.ToUpper(method),
 		OutputEncoding:    outputEncoding,
 		Timeout:           timeout,
-		QuerystringParams: []string{},
+		InputQueryStrings: []string{},
 		Backend:           []Backend{backend},
-		HeadersToPass:     []string{"Content-Type"},
+		InputHeaders:      []string{"Content-Type"},
 	}
 }
 
 func (e *Endpoint) InsertQuerystringParams(param string) {
-	e.QuerystringParams = append(e.QuerystringParams, param)
+	e.InputQueryStrings = append(e.InputQueryStrings, param)
 }
 
 func (e *Endpoint) InsertHeadersToPass(header string) {
-	e.HeadersToPass = append(e.HeadersToPass, header)
+	e.InputHeaders = append(e.InputHeaders, header)
 }
 
 type Configuration struct {
+	Schema         string                 `json:"$schema"`
 	Version        string                 `json:"version"`
 	Timeout        string                 `json:"timeout"`
 	CacheTtl       string                 `json:"cache_ttl"`
@@ -67,13 +68,14 @@ func NewConfiguration(outputEncoding string, timeout string) Configuration {
 	var extraConfig = make(map[string]interface{}, 15)
 
 	if getEnv("ENABLE_CORS", "false") == "true" {
-		extraConfig["github_com/devopsfaith/krakend-cors"] = NewCors()
+		extraConfig["security/cors"] = NewCors()
 	}
 	if getEnv("ENABLE_LOGGING", "false") == "true" {
-		extraConfig["github_com/devopsfaith/krakend-gologging"] = NewLogging()
+		extraConfig["telemetry/logging"] = NewLogging()
 	}
 
 	return Configuration{
+		Schema:         "https://www.krakend.io/schema/v3.json",
 		Version:        "3",
 		Timeout:        timeout,
 		CacheTtl:       "300s",
