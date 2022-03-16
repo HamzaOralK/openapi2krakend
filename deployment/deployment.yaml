@@ -14,7 +14,7 @@ spec:
     spec:
       initContainers:
         - name: init-configuration
-          image: okhuz/openapi2krakend:0.0.4
+          image: okhuz/openapi2krakend:0.0.5
           imagePullPolicy: Always
           env:
             - name: API_URLS
@@ -33,7 +33,7 @@ spec:
               name: remote-definitions
       containers:
         - name: krakend
-          image: devopsfaith/krakend:latest
+          image: devopsfaith/krakend:2.0.0
           ports:
             - containerPort: 8080
           imagePullPolicy: Always

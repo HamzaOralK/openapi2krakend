@@ -74,7 +74,7 @@ func NewConfiguration(outputEncoding string, timeout string) Configuration {
 	}
 
 	return Configuration{
-		Version:        "2",
+		Version:        "3",
 		Timeout:        timeout,
 		CacheTtl:       "300s",
 		OutputEncoding: outputEncoding,
