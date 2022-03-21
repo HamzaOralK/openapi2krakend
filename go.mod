@@ -1,8 +1,8 @@
 module github.com/okhuz/openapi2krakend
 
-go 1.17
+go 1.18
 
-require github.com/getkin/kin-openapi v0.90.0
+require github.com/getkin/kin-openapi v0.92.0
 
 require (
 	github.com/ghodss/yaml v1.0.0 // indirect
