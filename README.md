@@ -2,6 +2,10 @@
 Basic conversion from OpenAPI specification to Krakend config. This is extendable with custom OpenAPI 
 attributes and more support for both krakend and openapi configurations.
 
+### Supported custom OpenAPI extensions
+
+Example of custom extensions can be found in the `./swagger/pet-store.json`
+
 x-timeout: At top level or at method level modifies timeout for the whole api or for a single endpoint 
 
 ### Usage
@@ -36,7 +40,7 @@ make dockerize
 
 In deployment/deployment.yaml file you can set environment variables to "https://service-1/api-specification,https://service-2/api-specification"
 then image will download all the specifications supplied and merge and convert all swagger files into a single krakend
-configuration file. Allowed origin configuration for CORS application.
+configuration file.
 
 #### Environment Variables for openApi2krakend
 
@@ -55,4 +59,4 @@ configuration file. Allowed origin configuration for CORS application.
 kubectl apply -f ./deployment
 ````
 #### Contribution
-Project itself quite easy to understand and maintain and I am changing as I need it in my stack. Please feel free to contribute and open a PR if you see fit.
+Project itself quite easy to understand and maintain, and I am changing as I need it in my stack. Please feel free to contribute and open a PR if you see fit.
