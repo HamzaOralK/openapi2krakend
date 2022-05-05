@@ -20,7 +20,8 @@ files and convert.
 <br>
 -encoding: backend encoding for whole endpoints. default is "json".
 <br>
--global-timeout: sets global timeout, default is 3000ms 
+-global-timeout: sets global timeout, default is 3000ms, if there is a `x-timeout` attribute in any of the swagger files 
+this will be overwritten.
 
 ### Usage
 
@@ -35,6 +36,11 @@ To dockerize
 ````shell
 make dockerize
 ````
+
+To run with sample environment variables
+```shell
+make run
+```
 
 ### Deployment to Kubernetes
 

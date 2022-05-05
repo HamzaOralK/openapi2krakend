@@ -18,8 +18,6 @@ func main() {
 	configuration := converter.Convert(*swaggerDirectory, *encoding, *globalTimeout)
 
 	file, _ := json.MarshalIndent(configuration, "", " ")
-	//emptyLine := []byte("\n")
-	//file = append(file, emptyLine...)
 	_ = os.MkdirAll(path.Join(path.Base(""), "output"), 0777)
 	_ = os.WriteFile("output/krakend.json", file, 0644)
 }

@@ -23,6 +23,10 @@ spec:
               value: "true"
             - name: LOG_LEVEL
               value: "DEBUG"
+            - name: LOG_PREFIX
+              value: "[KRAKEND]"
+            - name: LOG_SYSLOG
+              value: "true"
             - name: ENABLE_CORS
               value: "true"
             - name: ALLOWED_ORIGINS
