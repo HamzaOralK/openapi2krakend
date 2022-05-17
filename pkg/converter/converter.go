@@ -60,10 +60,14 @@ func Convert(swaggerDirectory string, encoding string, globalTimeout string) mod
 								}
 							} else if explodedParams.Type == "Array" {
 								krakendEndpoint.InsertQuerystringParams(parameter.Name)
+							} else if explodedParams.Type == "string" && explodedParams.Enum != nil {
+								krakendEndpoint.InsertQuerystringParams(parameter.Name)
 							}
 						} else {
 							krakendEndpoint.InsertQuerystringParams(parameter.Name)
 						}
+					} else if parameter.In == "header" {
+						krakendEndpoint.InsertHeadersToPass(parameter.Name)
 					}
 				}
 

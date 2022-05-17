@@ -14,17 +14,21 @@ spec:
     spec:
       initContainers:
         - name: init-configuration
-          image: okhuz/openapi2krakend:0.0.6
+          image: okhuz/openapi2krakend:0.0.7
           imagePullPolicy: Always
           env:
             - name: API_URLS
               value: "<comma delimited api specification endpoints, format must be OpenAPI v3>"
+            - name: GLOBAL_TIMEOUT
+              value: "3600s"
             - name: ENABLE_LOGGING
               value: "true"
+            - name: ENCODING
+              value: "no-op"
             - name: LOG_LEVEL
               value: "DEBUG"
             - name: LOG_PREFIX
-              value: "[KRAKEND]"
+              value: "[TENERA]"
             - name: LOG_SYSLOG
               value: "false"
             - name: ENABLE_CORS

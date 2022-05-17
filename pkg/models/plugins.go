@@ -2,6 +2,7 @@ package models
 
 import (
 	"errors"
+	"github.com/okhuz/openapi2krakend/pkg/utility"
 	"log"
 	"strings"
 )
@@ -30,7 +31,7 @@ func NewLogging() Logging {
 
 func getLogLevel() (string, error) {
 	LogLevels := []string{"CRITICAL", "DEBUG", "ERROR", "INFO", "WARNING"}
-	LogLevel := strings.ToUpper(getEnv("LOG_LEVEL", "WARNING"))
+	LogLevel := strings.ToUpper(utility.GetEnv("LOG_LEVEL", "WARNING"))
 
 	for i := range LogLevels {
 		if LogLevels[i] == LogLevel {
@@ -42,11 +43,11 @@ func getLogLevel() (string, error) {
 }
 
 func getLogPrefix() string {
-	return getEnv("LOG_PREFIX", "[KRAKEND]")
+	return utility.GetEnv("LOG_PREFIX", "[KRAKEND]")
 }
 
 func getSysLog() bool {
-	if strings.ToLower(getEnv("LOG_SYSLOG", "true")) == "true" {
+	if strings.ToLower(utility.GetEnv("LOG_SYSLOG", "true")) == "true" {
 		return true
 	} else {
 		return false
@@ -54,7 +55,7 @@ func getSysLog() bool {
 }
 
 func getStdout() bool {
-	if strings.ToLower(getEnv("LOG_STDOUT", "true")) == "true" {
+	if strings.ToLower(utility.GetEnv("LOG_STDOUT", "true")) == "true" {
 		return true
 	} else {
 		return false
@@ -69,9 +70,9 @@ type Cors struct {
 }
 
 func NewCors() Cors {
-	allowOrigins := strings.Split(getEnv("ALLOWED_ORIGINS", "*"), ",")
+	allowOrigins := strings.Split(utility.GetEnv("ALLOWED_ORIGINS", "*"), ",")
 	var allowedMethods []string
-	methodsEnv := getEnv("ALLOWED_METHODS", "")
+	methodsEnv := utility.GetEnv("ALLOWED_METHODS", "")
 	if methodsEnv != "" {
 		allowedMethods = strings.Split(methodsEnv, ",")
 	} else {

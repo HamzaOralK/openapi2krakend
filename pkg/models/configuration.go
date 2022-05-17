@@ -1,6 +1,7 @@
 package models
 
 import (
+	"github.com/okhuz/openapi2krakend/pkg/utility"
 	"strings"
 )
 
@@ -67,10 +68,10 @@ type Configuration struct {
 func NewConfiguration(outputEncoding string, timeout string) Configuration {
 	var extraConfig = make(map[string]interface{}, 15)
 
-	if getEnv("ENABLE_CORS", "false") == "true" {
+	if utility.GetEnv("ENABLE_CORS", "false") == "true" {
 		extraConfig["security/cors"] = NewCors()
 	}
-	if getEnv("ENABLE_LOGGING", "false") == "true" {
+	if utility.GetEnv("ENABLE_LOGGING", "false") == "true" {
 		extraConfig["telemetry/logging"] = NewLogging()
 	}
 

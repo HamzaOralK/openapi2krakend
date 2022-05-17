@@ -19,9 +19,6 @@ files and convert.
 -directory: folder where swagger files live. default is swagger folder in repository.
 <br>
 -encoding: backend encoding for whole endpoints. default is "json".
-<br>
--global-timeout: sets global timeout, default is 3000ms, if there is a `x-timeout` attribute in any of the swagger files 
-this will be overwritten.
 
 ### Usage
 
@@ -57,9 +54,11 @@ configuration file.
 | LOG_PREFIX      | Log prefix for filtering                                                  | `string` | `[KRAKEND]`                                            |    no    |
 | LOG_SYSLOG      | Enable syslog                                                             | `bool`   | `true`                                                 |    no    |
 | LOG_STDOUT      | Enable stdout                                                             | `bool`   | `true`                                                 |    no    |
-| ENABLE_CORS     | Enable CORS plugin for KrakenD                                            | `bol`    | `false`                                                |    no    |
+| ENABLE_CORS     | Enable CORS plugin for KrakenD                                            | `bool`   | `false`                                                |    no    |
 | ALLOWED_ORIGINS | Comma seperated allowed origins, it will be used when ENABLE_CORS is true | `string` | `*`                                                    |    no    |
 | ALLOWED_METHODS | Comma seperated allowed methods, it will be used when ENABLE_CORS is true | `string` | `GET,HEAD,POST,PUT,DELETE,CONNECT,OPTIONS,TRACE,PATCH` |    no    |
+ | GLOBAL_TIMEOUT  | Sets global timeout across all endpoints                                  | `string` | `3000ms`                                               |    no    |
+| ENCODING        | Sets default encoding. Values are json, safejson, xml, rss, string, no-op | `string` | `json`                                                 |    no    |
 
 ````shell
 kubectl apply -f ./deployment
