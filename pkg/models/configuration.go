@@ -75,6 +75,14 @@ func NewConfiguration(outputEncoding string, timeout string) Configuration {
 		extraConfig["telemetry/logging"] = NewLogging()
 	}
 
+	var loggerSkipPaths = utility.GetEnv("LOGGER_SKIP_PATHS", "")
+
+	if loggerSkipPaths != "" {
+		extraConfig["router"] = Router{
+			LoggerSkipPaths: strings.Split(loggerSkipPaths, ","),
+		}
+	}
+
 	return Configuration{
 		Schema:         "https://www.krakend.io/schema/v3.json",
 		Version:        "3",

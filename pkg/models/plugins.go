@@ -96,3 +96,7 @@ func NewCors() Cors {
 		AllowMethods:  allowedMethods,
 	}
 }
+
+type Router struct {
+	LoggerSkipPaths []string `json:"logger_skip_paths"`
+}

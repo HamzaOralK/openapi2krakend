@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/okhuz/openapi2krakend/pkg/extensions"
 	"github.com/okhuz/openapi2krakend/pkg/models"
+	"github.com/okhuz/openapi2krakend/pkg/utility"
 	"io/fs"
 	"io/ioutil"
 )
@@ -23,6 +24,7 @@ func Convert(swaggerDirectory string, encoding string, globalTimeout string) mod
 
 		host := openApiDefinition.Servers[0].URL
 		path := sanitizeTitle(openApiDefinition.Info.Title)
+		pathPrefix := utility.GetEnv("PATH_PREFIX", "")
 		apiTimeout := globalTimeout
 
 		if extensionValue := getExtension(openApiDefinition.Extensions, extensions.TimeOut); extensionValue != "" {
@@ -32,9 +34,12 @@ func Convert(swaggerDirectory string, encoding string, globalTimeout string) mod
 		for pathUrl, pathItem := range openApiDefinition.Paths {
 			for methodName, methodObject := range pathItem.Operations() {
 
-				endpoint := fmt.Sprintf("%s", pathUrl)
+				krakendEndpointUrl := fmt.Sprintf("%s", pathUrl)
 				if numberOfFiles > 1 {
-					endpoint = fmt.Sprintf("/%s%s", path, pathUrl)
+					krakendEndpointUrl = fmt.Sprintf("/%s%s", path, pathUrl)
+				}
+				if pathPrefix != "" {
+					krakendEndpointUrl = fmt.Sprintf("/%s%s", pathPrefix, pathUrl)
 				}
 
 				methodTimeout := apiTimeout
@@ -42,7 +47,7 @@ func Convert(swaggerDirectory string, encoding string, globalTimeout string) mod
 					methodTimeout = extensionValue
 				}
 
-				krakendEndpoint := models.NewEndpoint(host, endpoint, pathUrl, methodName, encoding, methodTimeout)
+				krakendEndpoint := models.NewEndpoint(host, krakendEndpointUrl, pathUrl, methodName, encoding, methodTimeout)
 				if methodObject.Security != nil {
 					lengthOfSecurity := len(*methodObject.Security)
 					if lengthOfSecurity > 0 {
