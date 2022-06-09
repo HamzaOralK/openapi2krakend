@@ -2,6 +2,7 @@ package converter
 
 import (
 	"fmt"
+	"github.com/okhuz/openapi2krakend/pkg/models"
 	"io/fs"
 	"log"
 	"regexp"
@@ -47,4 +48,16 @@ func sanitizeTitle(input string) string {
 		log.Fatal(err)
 	}
 	return strings.ToLower(reg.ReplaceAllString(input, ""))
+}
+
+func insertQueryParams(refComponent *openapi3.Schema, openApiDefinition *openapi3.T, krakendEndpoint *models.Endpoint) {
+	for k, _ := range refComponent.Properties {
+		krakendEndpoint.InsertQuerystringParams(k)
+	}
+	for _, i := range refComponent.AllOf {
+		if i.Ref != "" {
+			newParameterObject := getComponentFromReferenceAddress(*openApiDefinition, i.Ref)
+			insertQueryParams(&newParameterObject, openApiDefinition, krakendEndpoint)
+		}
+	}
 }

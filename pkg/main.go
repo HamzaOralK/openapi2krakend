@@ -14,7 +14,7 @@ func main() {
 
 	flag.Parse()
 
-	encoding := utility.GetEnv("ENCODING", "json");
+	encoding := utility.GetEnv("ENCODING", "json")
 	globalTimeout := utility.GetEnv("GLOBAL_TIMEOUT", "3000ms")
 
 	configuration := converter.Convert(*swaggerDirectory, encoding, globalTimeout)

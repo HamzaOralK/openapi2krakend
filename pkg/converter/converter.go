@@ -60,9 +60,7 @@ func Convert(swaggerDirectory string, encoding string, globalTimeout string) mod
 						if parameter.Explode != nil && *parameter.Explode == true && parameter.Schema.Ref != "" {
 							explodedParams := getComponentFromReferenceAddress(*openApiDefinition, parameter.Schema.Ref)
 							if explodedParams.Type == "object" {
-								for k, _ := range explodedParams.Properties {
-									krakendEndpoint.InsertQuerystringParams(k)
-								}
+								insertQueryParams(&explodedParams, openApiDefinition, &krakendEndpoint)
 							} else if explodedParams.Type == "Array" {
 								krakendEndpoint.InsertQuerystringParams(parameter.Name)
 							} else if explodedParams.Type == "string" && explodedParams.Enum != nil {
