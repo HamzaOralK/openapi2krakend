@@ -67,6 +67,8 @@ type Cors struct {
 	ExposeHeaders []string `json:"expose_headers"`
 	MaxAge        string   `json:"max_age"`
 	AllowMethods  []string `json:"allow_methods"`
+	AllowHeaders  []string `json:"allow_headers"`
+	Debug         bool     `json:"debug"`
 }
 
 func NewCors() Cors {
@@ -89,11 +91,20 @@ func NewCors() Cors {
 		}
 	}
 
+	var debug bool
+	if utility.GetEnv("DEBUG", "false") == "true" {
+		debug = true
+	} else {
+		debug = false
+	}
+
 	return Cors{
 		AllowOrigins:  allowOrigins,
-		ExposeHeaders: []string{"Content-Length"},
+		ExposeHeaders: []string{"Authorization", "Content-Length", "Content-Type", "Access-Control-Allow-Origin"},
 		MaxAge:        "12h",
 		AllowMethods:  allowedMethods,
+		AllowHeaders:  []string{"Authorization", "Content-Length", "Accept-Language", "Content-Type", "Access-Control-Allow-Origin"},
+		Debug:         debug,
 	}
 }
 
