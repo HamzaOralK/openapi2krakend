@@ -11,5 +11,6 @@ export ENCODING="no-op"
 export LOGGER_SKIP_PATHS="/__health"
 export PATH_PREFIX="v1"
 export DEBUG=true
+export ADDITIONAL_PATHS="/management/prometheus"
 
 go run ./pkg

@@ -6,7 +6,7 @@ build:
 	upx -9 ./build/openapi2krakend
 
 dockerize: build
-	docker buildx build --platform=linux/amd64 -f docker/Dockerfile -t okhuz/openapi2krakend:0.1.5 .
+	docker buildx build --platform=linux/amd64 -f docker/Dockerfile -t okhuz/openapi2krakend:0.1.6 .
 
 test:
 	go test ./... -v

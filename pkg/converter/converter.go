@@ -7,6 +7,7 @@ import (
 	"github.com/okhuz/openapi2krakend/pkg/utility"
 	"io/fs"
 	"io/ioutil"
+	"strings"
 )
 
 func Convert(swaggerDirectory string, encoding string, globalTimeout string) models.Configuration {
@@ -75,6 +76,16 @@ func Convert(swaggerDirectory string, encoding string, globalTimeout string) mod
 				}
 
 				configuration.InsertEndpoint(krakendEndpoint)
+			}
+		}
+
+		additionalPaths := utility.GetEnv("ADDITIONAL_PATHS", "")
+		if additionalPaths != "" {
+			additionalPathArray := strings.Split(additionalPaths, ",")
+			for _, v := range additionalPathArray {
+				additionalEndpoint := models.NewEndpoint(host, fmt.Sprintf("/%s%s", path, v), v, "get", encoding, apiTimeout)
+				additionalEndpoint.InsertHeadersToPass("Authorization")
+				configuration.InsertEndpoint(additionalEndpoint)
 			}
 		}
 	}
